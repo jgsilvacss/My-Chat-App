@@ -9,7 +9,6 @@ const Signup = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     try {
       const response = await fetch(
         "https://my-chat-application-c4c6dbd08d67.herokuapp.com/auth/signup",
@@ -24,9 +23,8 @@ const Signup = () => {
 
       if (response.ok) {
         const data = await response.json();
-        document.cookie = `token=${data.token}; path=/; max-age=${60}`;
-        navigate("/lobbies");
-        console.log("Signup successful:", responseData);
+        navigate("/login");
+        console.log("Signup successful:", data);
       } else {
         const errorData = await response.json();
         console.error("Signup failed:", errorData);
@@ -40,14 +38,14 @@ const Signup = () => {
 
   return (
     <div className="signup_container">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="Username">New Username:</label>
+      <form onSubmit={handleSubmit} method="POST">
+        <label for="Username">New Username:</label>
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label htmlFor="Password">Password:</label>
+        <label for="Password">Password:</label>
         <input
           type="password"
           value={password}

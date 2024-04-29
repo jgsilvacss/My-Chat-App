@@ -10,7 +10,7 @@ const Routing = () => {
     <Router>
       <Routes>
         <Route element={<PrivateRoutes/>}>
-        <Route element={<Lobbies/>} path='/lobbies' />
+        <Route element={<Lobbies/>} path='/lobbies/:id/' />
         </Route>
         <Route element={<Signup/>} path='/signup' />
         <Route element={<Login/>} path='/login' />
