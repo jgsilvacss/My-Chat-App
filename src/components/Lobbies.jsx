@@ -10,16 +10,7 @@ const Lobbies = () => {
     } 
     return (
         <>
-        <div className="login_container">
-            <form action="submit" method="POST">
-            <label for="Username">New Username:</label>
-            <input type="text"></input>
-            <label for="Password">Password:</label>
-            <input type="password" ></input>
-            <button type="submit">LogIn</button>
-            <Link to="/signup">Have not registered yet? Sign up here!</Link>
-            </form>
-            </div>
+       <div>Lobby</div>
             </>
     );
 }
