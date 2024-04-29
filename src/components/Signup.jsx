@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../assets/Signup.css";
 
 const Signup = () => {
-  const [username, setUsername] = useState("");
+  const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (event) => {
@@ -15,7 +15,7 @@ const Signup = () => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ email, password })
       });
   
       if (response.ok) {
@@ -33,7 +33,7 @@ const Signup = () => {
     }
   
   
-    console.log("Username:", username, "Password:", password); // Temporary
+    console.log("Email:", email, "Password:", password); // Temporary
   };
 
   return (
