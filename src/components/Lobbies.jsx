@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import "../assets/Signup.css";
 
-const Lobbies = () => {
+const LobbiesList = ({ fetchMessages }) => {
   const { id } = useParams();
   const [lobbies, setLobbies] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [token, setToken] = useState(null);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Lobbies = () => {
       // Fetch lobby data
       const fetchLobby = async () => {
         try {
-            console.log("About to fetch lobbies, token:", token)
+          setLoading(true);
           const response = await fetch(`https://my-chat-application-c4c6dbd08d67.herokuapp.com/lobby/${id}/get-lobby`, {
             method: "GET",
             credentials: "include",
@@ -31,10 +31,7 @@ const Lobbies = () => {
               Authorization: `Bearer ${token}`,
               Token: token,
             },
-            
           });
-
-          console.log("Raw lobby response:", response)
 
           if (!response.ok) {
             throw new Error("Failed to fetch lobby");
@@ -42,36 +39,32 @@ const Lobbies = () => {
 
           const data = await response.json();
           setLobbies(data);
+          setLoading(false);
         } catch (error) {
           console.error("Error fetching lobby:", error.message);
+          setLoading(false);
         }
       };
 
       fetchLobby();
     }
-  }, [id, token]);
-
-  // Log lobbies when it changes
-  useEffect(() => {
-    console.log(lobbies);
-  }, [lobbies]);
+  }, [id, token, fetchMessages]);
 
   return (
-    <>
-      <div className="lobby-container">
-        {lobbies ? ( // Check if lobbies exists before mapping
-          lobbies.map((lobby) => (
-            <div key={lobby.lobby_id} className="lobby"> {/* Changed to lobby_id for uniqueness */}
-              <h3>{lobby.name}</h3>
-            </div>
-          ))
-        ) : (
-          <p>Loading lobbies...</p> // Display a loading message
-        )}
-      </div>
-    </>
+    <div className="lobbies-column">
+      {loading && <p>Loading...</p>}
+      {lobbies &&
+        lobbies.map((lobby) => (
+          <div
+            key={lobby.lobby_id}
+            className="lobby"
+            onClick={() => fetchMessages(lobby.lobby_id)}
+          >
+            <h3>{lobby.name}</h3>
+          </div>
+        ))}
+    </div>
   );
+};
 
-}
-
-export default Lobbies;
+export default LobbiesList;

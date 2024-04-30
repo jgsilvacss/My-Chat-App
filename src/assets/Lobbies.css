@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+#root {
+    max-width: none;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+.body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+.chat-app {
+    display: flex;
+    height: 100vh;
+  }
+  .lobbies-column {
+   height: 100vh;
+   min-width: 200px;
+   max-width: 300px;
+    overflow-y: auto; /* Add scrollbar if content exceeds height */
+    border-right: 1px solid #ccc; /* Add border to separate lobbies from messages */
+  }
+
+  .lobby {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+    color: black;
+    background-color: #fdfdfd;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgb(1, 1, 251); 
+    transition: box-shadow 0.3s ease; /* Add transition for smooth hover effect */
+  }
+  
+  .lobby:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increase box shadow on hover */
+  }
+  
+  
+  .messages-container {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .messages-area {
+    flex: 1;
+    overflow-y: auto; /* Add scrollbar if content exceeds height */
+  }
+  
+  .message-form {
+    display: flex;
+    width: max-content;
+    min-width: 85vw;
+    padding: 10px;
+    background-color: #f0f0f0;
+  }
+  
+  .message-form input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .message-form button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .message-form button:hover {
+    background-color: #0056b3;
+  }
+  
+/* Lobbies.css */
+
+/* Message card styles */
+.message-card {
+    max-width: fit-content;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 25px;
+    background-color: #f9f9f9;
+    color: black;
+  }
+  
+
+ 
+  
