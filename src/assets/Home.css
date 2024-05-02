@@ -1,0 +1,26 @@
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-top: 6px;
+}
+
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    gap: 15px;
+
+}
+
+.button {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #2f74c0;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+}

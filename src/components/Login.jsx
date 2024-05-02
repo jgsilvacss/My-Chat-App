@@ -49,7 +49,8 @@ const Login = () => {
       setUsername("");
       setPassword("");
 
-      navigate(`/lobbies/${userId}`);
+      navigate(`/home`, { state: { userId } }); 
+
 
     } catch (error) {
       console.error("Signup failed:", error.message);
@@ -57,6 +58,7 @@ const Login = () => {
   };
   return (
     <>
+    <div className="Heading"><h1>LokkerRoom</h1></div>
       <div className="login_container">
         <form onSubmit={handleSubmit} method="post">
           <label htmlFor="username">Username</label>

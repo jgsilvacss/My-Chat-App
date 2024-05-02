@@ -37,6 +37,8 @@ const Signup = () => {
   };
 
   return (
+    <>
+    <div className="Heading"><h1>LokkerRoom</h1></div>
     <div className="signup_container">
       <form onSubmit={handleSubmit} method="POST">
         <label for="Username">New Username:</label>
@@ -54,6 +56,7 @@ const Signup = () => {
         <button type="submit">Create</button>
       </form>
     </div>
+    </>
   );
 };
 

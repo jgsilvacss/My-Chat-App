@@ -1,16 +1,23 @@
+
+.signup_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 .signup_container > form {
-   display: flex;
-   flex-direction: column;
-   gap : 10px;
-
-}
-
-.signup_container > form > button {
-    margin-top: 15px;
-    padding: 15px;
-    border-radius: 10px;
-    background-color: #2f74c0;
-    color: white;
-    font-weight: 500;
-    font-size: 18px;
-}
+    display: flex;
+    flex-direction: column;
+    gap : 10px;
+ 
+ }
+ 
+ .signup_container > form > button {
+     margin-top: 15px;
+     padding: 15px;
+     border-radius: 10px;
+     background-color: #2f74c0;
+     color: white;
+     font-weight: 500;
+     font-size: 18px;
+ }
